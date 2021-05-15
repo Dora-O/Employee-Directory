@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import SearchBar from "../SearchBar";
-
-
+import Search from "../Search";
+import EmployeeList from "../../components/EmployeeList";
 
 class Wrapper extends Component {
   state = {
@@ -25,9 +24,9 @@ class Wrapper extends Component {
   render() {
     return (
       <div>
-        <SearchBar search={this.state.search} handleFormSubmit={this.handleFormSubmit}
+        <Search search={this.state.search} handleFormSubmit={this.handleFormSubmit}
           handleInputChange={this.handleInputChange} />
-
+          <EmployeeList result={this.state.result} />
       </div>
     );
   }
