@@ -1,21 +1,29 @@
 import React from "react";
 
 function EmployeeList(props) {
+  
+  const data = props.EmployeeList;
+
   return (
     <table>
-      <caption> Current Employees </caption>
+      <caption>Employees </caption>
       <thead>
-        <tr>
+        <tr className="text-center align-middle">
           <th>Photo</th>
-          <th>Full Name</th>
-          <th>Phone Number</th>
-          <th>Email</th>
+          <th >Full Name</th>
+          <th onClick={e => props.sortBy(e, 'phone')}> Phone
+          <span class={props.phoneSort=== 'ascending' ? 'headerSortDown' : 'headerSortUp'}>  </span></th>
+          <th onClick={e => props.sortBy(e, 'email')} >Email
+          <span class={props.emailSort=== 'ascending' ? 'headerSortDown' : 'headerSortUp'}>  
+          </span>
+          </th>
+   
         </tr>
       </thead>
       <tbody>
-        {props.result.map(employee => (
-          <tr key={employee.id}>
-            <td> <img src={employee.picture.thumbnail} alt="Thumbnail"/> </td>
+        {data.map(employee => (
+          <tr className="text-center align-middle" key={employee.id.value == null ? Math.random() : employee.id.value}>
+            <td> <img src={employee.picture.medium} alt="Thumbnail"/> </td>
             <td>{employee.name.first} {employee.name.last}</td>
             <td>{employee.phone}</td>
             <td>{employee.email}</td>
@@ -25,5 +33,4 @@ function EmployeeList(props) {
     </table>
   );
 }
-
 export default EmployeeList;
