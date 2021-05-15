@@ -11,7 +11,7 @@ function EmployeeList(props) {
         <tr className="text-center align-middle">
           <th>Photo</th>
           <th >Full Name</th>
-          <th onClick={e => props.sortBy(e, 'phone')}> Phone
+          <th onClick={e => props.sortBy(e, 'phone')}> Phone Number
           <span class={props.phoneSort=== 'ascending' ? 'headerSortDown' : 'headerSortUp'}>  </span></th>
           <th onClick={e => props.sortBy(e, 'email')} >Email
           <span class={props.emailSort=== 'ascending' ? 'headerSortDown' : 'headerSortUp'}>  
